@@ -51,7 +51,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     if (isHydrated && !isAuthenticated) {
-      router.replace("/login");
+      router.replace("/");
     }
   }, [isHydrated, isAuthenticated, router]);
 
@@ -68,14 +68,14 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
   const unreadCount = notifications.filter((n) => n.unread).length;
 
-  const isDashboard = pathname === "/";
+  const isDashboard = pathname === "/dashboard";
   const isGrades = pathname === "/grades";
   const isLessons = pathname.startsWith("/lessons");
   const isQuiz = pathname.startsWith("/quiz");
 
   const handleLogout = () => {
     logout();
-    router.push("/login");
+    router.push("/");
   };
 
   const navContent = (collapsed: boolean) => (
@@ -150,7 +150,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         >
           <Tooltip label="Dashboard" side="right" fullWidth disabled={!collapsed}>
             <Link
-              href="/"
+              href="/dashboard"
               onClick={() => setMobileDrawerOpen(false)}
               className={`flex items-center gap-3 transition-colors ${
                 isDashboard
@@ -438,7 +438,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             <Menu className="h-5 w-5" />
           </button>
 
-          <Link href="/" className="flex min-w-0 items-center gap-2">
+          <Link href="/dashboard" className="flex min-w-0 items-center gap-2">
             <span className="flex shrink-0 items-center rounded-md bg-[#7A1B23] px-1.5 py-1 sm:px-2">
               <img
                 src="/assets/sap-b1-logo.png"
@@ -467,7 +467,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           className="hidden h-full shrink-0 items-center gap-0.5 md:flex lg:gap-1"
         >
           {[
-            { href: "/", label: "Dashboard", active: isDashboard },
+            { href: "/dashboard", label: "Dashboard", active: isDashboard },
             { href: "/lessons", label: "Lessons", active: isLessons },
             { href: "/grades", label: "Grade Summary", active: isGrades },
           ].map((tab) => (
@@ -649,7 +649,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         className="sticky bottom-0 z-20 flex items-center justify-around border-t border-[#DADCE0] bg-white py-2 md:hidden"
       >
         <Link
-          href="/"
+          href="/dashboard"
           className={`flex flex-col items-center gap-0.5 text-[11px] font-medium ${
             isDashboard ? "text-[#A22630]" : "text-[#5F6368]"
           }`}

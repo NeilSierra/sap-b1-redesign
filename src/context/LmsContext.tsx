@@ -70,7 +70,7 @@ interface LmsContextValue {
 }
 
 const defaultPersisted: PersistedState = {
-  isAuthenticated: true,
+  isAuthenticated: false,
   progress: INITIAL_PROGRESS,
   grades: INITIAL_GRADES,
   comments: INITIAL_COMMENTS,
@@ -98,7 +98,7 @@ export function LmsProvider({ children }: { children: React.ReactNode }) {
         if (raw) {
           const parsed = JSON.parse(raw) as Partial<PersistedState>;
           setState({
-            isAuthenticated: parsed.isAuthenticated ?? true,
+            isAuthenticated: parsed.isAuthenticated ?? false,
             progress: parsed.progress ?? INITIAL_PROGRESS,
             grades: parsed.grades ?? INITIAL_GRADES,
             comments: parsed.comments ?? INITIAL_COMMENTS,
