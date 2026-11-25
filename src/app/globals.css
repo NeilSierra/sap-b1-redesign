@@ -1,26 +1,81 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-brand: #A22630;
+  --color-brand-tint: rgba(162, 38, 48, 0.08);
+  --color-accent: #FFB200;
+  --color-accent-tint: rgba(255, 178, 0, 0.14);
+
+  --color-canvas: #FFFFFF;
+  --color-surface-subtle: #F8F9FA;
+  --color-surface-hover: #F1F3F4;
+  --color-border-hairline: #DADCE0;
+  --color-neutral-muted: #9AA0A6;
+  --color-text-disabled: #80868B;
+  --color-text-secondary: #5F6368;
+  --color-text-primary: #202124;
+
+  --font-display: var(--font-plus-jakarta), "Inter", system-ui, sans-serif;
+  --font-sans: var(--font-inter), "Roboto", system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), "Roboto Mono", monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --bg-canvas: #FFFFFF;
+  --bg-surface-subtle: #F8F9FA;
+  --bg-surface-hover: #F1F3F4;
+  --border-hairline: #DADCE0;
+  --text-primary: #202124;
+  --text-secondary: #5F6368;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #F1F3F4;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.sidebar-scroll {
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(95, 99, 104, 0.35) transparent;
+}
+
+.sidebar-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar-scroll::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 9999px;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb {
+  background: rgba(95, 99, 104, 0.35);
+  border-radius: 9999px;
+  transition: background-color 0.2s ease;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb:hover {
+  background: #A22630;
+}
+
+.classroom-card {
+  background: #FFFFFF;
+  border: 1px solid #DADCE0;
+  border-radius: 8px;
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s ease;
+}
+
+.classroom-card-hover:hover {
+  box-shadow: 0 1px 2px 0 rgba(32, 33, 36, 0.22), 0 2px 6px 2px rgba(32, 33, 36, 0.12);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono-code {
+  font-family: var(--font-mono);
 }
