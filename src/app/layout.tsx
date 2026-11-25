@@ -25,10 +25,6 @@ export const metadata: Metadata = {
   title: "Erudite SAP Business One LMS | LPU Cavite",
   description:
     "Lyceum of the Philippines University — Cavite (IT302-WM) SAP Business One Learning Management System",
-  icons: {
-    icon: "/assets/lpu-logo.png",
-    apple: "/assets/lpu-logo.png",
-  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
